@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gothic Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tempus Mortis</h1>
+        <div class="timer-container">
+            <div class="timer">
+                <span id="minutes">25</span><span class="time-separator">:</span><span id="seconds">00</span>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start">Begin</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+            <button id="settings"><i class="fas fa-star-of-david"></i> Settings</button>
+        </div>
+        <div class="mode">
+            <span id="mode-text">Work Time</span>
+        </div>
+        
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2>Settings</h2>
+                <form id="settings-form">
+                    <div class="setting-item">
+                        <label for="workTime">Work Duration</label>
+                        <input type="number" id="workTime" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-item">
+                        <label for="breakTime">Break Duration</label>
+                        <input type="number" id="breakTime" min="1" max="60" value="5">
+                    </div>
+                    <div class="setting-buttons">
+                        <button type="submit">Save</button>
+                        <button type="button" id="close-settings">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
