@@ -26,11 +26,12 @@ body {
 .container {
     text-align: center;
     background: rgba(20, 20, 20, 0.95);
-    padding: var(--s5);
+    padding: var(--s4);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     max-width: calc(500px * var(--ratio));
     width: 90%;
+    margin: var(--s2);
     backdrop-filter: blur(10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
                 0 0 0 1px #000;
@@ -78,24 +79,27 @@ h1 {
 .controls {
     display: flex;
     justify-content: center;
-    gap: var(--s2);
+    gap: var(--s1);
     margin: var(--s4) 0;
+    flex-wrap: wrap;
 }
 
 .controls button {
     font-family: 'Cinzel', serif;
-    font-size: var(--s2);
-    padding: var(--s2) var(--s3);
+    font-size: calc(var(--s2) * 0.9);
+    padding: var(--s1) var(--s2);
     cursor: pointer;
     background: #000;
     color: #d4d4d4;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     position: relative;
     overflow: hidden;
-    min-width: calc(var(--s4) * 2.5);
+    min-width: calc(var(--s4) * 2);
+    flex: 1 1 auto;
+    max-width: 200px;
 }
 
 .controls button::before {
@@ -164,13 +168,13 @@ h1 {
 
 .modal-content {
     background: #000;
-    padding: var(--s4);
+    padding: var(--s3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100% * 0.618);
+    width: 90%;
     max-width: calc(500px * 0.618);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
@@ -286,4 +290,72 @@ h1 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    :root {
+        --base-size: 0.9rem;
+    }
+
+    .container {
+        padding: var(--s3);
+        width: 95%;
+        margin: var(--s1);
+    }
+
+    .timer-container {
+        width: 90%;
+        padding: var(--s3);
+    }
+
+    .timer {
+        font-size: var(--s5);
+    }
+
+    h1 {
+        font-size: var(--s4);
+        margin-bottom: var(--s3);
+    }
+
+    .controls {
+        gap: var(--s1);
+    }
+
+    .controls button {
+        font-size: calc(var(--s2) * 0.8);
+        padding: var(--s1) var(--s1);
+        min-width: auto;
+        letter-spacing: 0.05em;
+    }
+
+    .setting-buttons {
+        flex-direction: column;
+        gap: var(--s1);
+    }
+
+    .setting-buttons button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --base-size: 0.8rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls button {
+        max-width: none;
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: var(--s2);
+    }
 } 
